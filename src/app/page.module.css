@@ -13,7 +13,8 @@
   min-height: 100svh;
   padding: 80px;
   gap: 64px;
-  font-family: var(--font-geist-sans);
+  /* Replaced font variable with Inter fallback */
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -34,8 +35,9 @@
   grid-row-start: 2;
 }
 
+/* Replaced font variable with monospace fallback */
 .main ol {
-  font-family: var(--font-geist-mono);
+  font-family: 'Courier New', monospace;
   padding-left: 0;
   margin: 0;
   font-size: 14px;
