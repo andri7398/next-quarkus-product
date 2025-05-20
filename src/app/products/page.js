@@ -10,11 +10,11 @@ export default function Products() {
   const [form] = Form.useForm();
   const [editingProduct, setEditingProduct] = useState(null);
   const router = useRouter();
-  const formRef = useRef(null); // 1. create ref
+  const formRef = useRef(null);
 
   useEffect(() => {
     const token = Cookies.get('token');
-    if (!token) router.push('/'); // redirect to login if no token
+    if (!token) router.push('/');
     else fetchProducts();
   }, []);
 
@@ -78,6 +78,11 @@ export default function Products() {
     },
   ];
 
+  const handleLogout = () =>{
+    Cookies.remove("token");
+    router.push("/");
+  }
+
   return (
     <div style={{ maxWidth: 1000, margin: '50px auto', padding: 20 }}>
       <h1>Product List</h1>
@@ -117,6 +122,10 @@ export default function Products() {
             </Button>
           </Space>
         </Form.Item>
+        <br></br>
+        <Button onClick={handleLogout} type="primary" danger style={{ float: 'left' }}>
+              Logout
+        </Button>
       </Form>
     </div>
   </div>
